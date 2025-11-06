@@ -22,24 +22,9 @@ All models share a common interface for:
 - State initialization
 - Step-wise execution
 - JSON output
-- Visualization
+- Visualization (trend plots and network animations)
 
 ## Installation
-
-### From PyPI
-
-Install the latest stable version:
-
-```bash
-pip install seiz-models
-```
-
-For animation support (requires pillow):
-
-```bash
-pip install seiz-models[animation]
-```
-
 ### From Source
 
 Clone the repository and install dependencies:
