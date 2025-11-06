@@ -1,5 +1,12 @@
 # Evaluating Moderation in Online Social Networks
 
+[![CI](https://github.com/GiulioRossetti/Eval_Moderation_OSN/actions/workflows/ci.yml/badge.svg)](https://github.com/GiulioRossetti/Eval_Moderation_OSN/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/seiz-models.svg)](https://pypi.org/project/seiz-models/)
+[![Python Version](https://img.shields.io/pypi/pyversions/seiz-models.svg)](https://pypi.org/project/seiz-models/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
+[![License](https://img.shields.io/badge/License-BSD_2--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
+
 This package provides implementations of SEIZ (Susceptible-Exposed-Infected-Skeptic) epidemic models for studying information spread and content moderation on social networks.
 
 ## Models
@@ -19,9 +26,27 @@ All models share a common interface for:
 
 ## Installation
 
-Install the package and dependencies via pip:
+### From PyPI
+
+Install the latest stable version:
 
 ```bash
+pip install seiz-models
+```
+
+For animation support (requires pillow):
+
+```bash
+pip install seiz-models[animation]
+```
+
+### From Source
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/GiulioRossetti/Eval_Moderation_OSN.git
+cd Eval_Moderation_OSN
 pip install -r requirements.txt
 ```
 
@@ -58,6 +83,12 @@ history = model.run(steps=100)
 
 # Visualize results
 model.plot()
+
+# Create an animated visualization of epidemic spreading
+anim = model.animate_network(steps=50, interval=200)
+
+# Save animation (requires ffmpeg for MP4 or pillow for GIF)
+# model.animate_network(steps=50, save_path='epidemic_spread.gif')
 
 # Export to JSON
 model.save_json('results.json')
@@ -157,6 +188,44 @@ All models export results in a standardized JSON format:
 }
 ```
 
+## Visualization
+
+### Static Plots
+
+Generate time series plots of state evolution:
+
+```python
+model.plot()  # Display plot
+model.save_plot('epidemic_dynamics.png')  # Save to file
+```
+
+### Network Animation
+
+Visualize epidemic spreading over the network structure:
+
+```python
+# Generate animation
+anim = model.animate_network(
+    steps=50,          # Number of simulation steps
+    interval=200,      # Delay between frames (ms)
+    figsize=(10, 10),  # Figure size
+    node_size=100,     # Node size
+    seed=42            # Layout seed for reproducibility
+)
+
+# Save animation as GIF (requires pillow)
+model.animate_network(steps=50, save_path='spread.gif')
+
+# Save as MP4 (requires ffmpeg)
+model.animate_network(steps=50, save_path='spread.mp4')
+```
+
+The animation shows nodes colored by state:
+- **Blue**: Susceptible (S)
+- **Orange**: Exposed (E)
+- **Red**: Infected (I)
+- **Green**: Skeptic (Z)
+
 ## Running Tests
 
 Run all unit tests:
@@ -173,6 +242,67 @@ All models use the SEIZ framework with four states:
 - **E (Exposed)**: Infected but not yet spreading
 - **I (Infected)**: Actively spreading information/misinformation
 - **Z (Skeptic)**: Resistant to infection, can spread skepticism
+
+## Development
+
+### Setting up Development Environment
+
+To contribute to this project, install development dependencies:
+
+```bash
+pip install -r requirements-dev.txt
+```
+
+### Code Formatting
+
+This project uses `black` and `isort` for code formatting. To set up pre-commit hooks:
+
+```bash
+pre-commit install
+```
+
+This will automatically format your code on each commit. To manually format all files:
+
+```bash
+black seiz_models tests examples
+isort seiz_models tests examples
+```
+
+### CI/CD Pipeline
+
+The project uses GitHub Actions for continuous integration and deployment:
+
+- **CI Workflow**: Runs on every push and pull request
+  - Linting with black and isort
+  - Tests across Python 3.8-3.12
+  - Code coverage reporting
+  - Distribution build validation
+
+- **PyPI Publishing**: Automated publishing to PyPI
+  - Triggered on release creation
+  - Manual dispatch for testing on TestPyPI
+  - Uses API token authentication
+
+#### Setting up PyPI Secrets
+
+To enable PyPI publishing, configure the following GitHub secrets:
+- `PYPI_API_TOKEN`: Your PyPI API token
+- `TEST_PYPI_API_TOKEN`: Your TestPyPI API token (optional, for testing)
+
+Generate tokens at:
+- PyPI: https://pypi.org/manage/account/token/
+- TestPyPI: https://test.pypi.org/manage/account/token/
+
+#### Publishing a Release
+
+To publish a new release:
+1. Update version in `setup.py`
+2. Create a new release on GitHub with a version tag (e.g., `v0.1.0`)
+3. The workflow automatically builds and publishes to PyPI
+
+For manual publishing to TestPyPI:
+1. Go to Actions → Publish to PyPI → Run workflow
+2. Select "testpypi" and run
 
 ## License
 

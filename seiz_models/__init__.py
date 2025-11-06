@@ -16,10 +16,10 @@ from .seiz_bm import SEIZBMModel
 from .seiz_sm import SEIZSMModel
 
 __all__ = [
-    'BaseEpidemicModel',
-    'SEIZModel',
-    'SEIZBMModel',
-    'SEIZSMModel',
+    "BaseEpidemicModel",
+    "SEIZModel",
+    "SEIZBMModel",
+    "SEIZSMModel",
 ]
 
-__version__ = '0.1.0'
+__version__ = "0.1.0"
