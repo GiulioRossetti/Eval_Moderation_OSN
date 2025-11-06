@@ -210,3 +210,7 @@ __marimo__/
 examples/*.json
 examples/*.png
 examples/*.csv
+
+# Model output files (root directory)
+/seiz_*.json
+/model_comparison.png
