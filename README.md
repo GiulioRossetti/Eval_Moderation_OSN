@@ -190,4 +190,11 @@ If you use this package in your research, please cite:
 }
 ```
 
-Implemented by: Giulio Rossetti.
+Models implementations by: [Giulio Rossetti](https://giuliorossetti.github.io/)
+
+## Acknowledgements
+
+This work is supported by:
+- PRIN 2022 framework project PIANO, under CUP B53D23013290006; 
+- Italian Project Fondo Italiano per la Scienza FIS00001966 MIMOSA;  
+- NextGenerationEU – National Recovery and Resilience Plan (Piano Nazionale  di Ripresa e Resilienza, PNRR) – Project: “SoBigData.it - Strengthening the Italian RI for Social Mining and Big Data Analytics” – Prot. IR0000013 – Avviso n. 3264 del 28/12/2021.
