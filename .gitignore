@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Example outputs
+examples/*.json
+examples/*.png
+examples/*.csv
+
+# Model output files (root directory)
+/seiz_*.json
+/model_comparison.png
