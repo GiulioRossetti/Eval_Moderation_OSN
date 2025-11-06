@@ -4,6 +4,12 @@ Basic usage example for SEIZ epidemic models.
 This script demonstrates how to use all three models and compare their results.
 """
 
+import sys
+from pathlib import Path
+
+# Add parent directory to path to locate seiz_models package
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
 import networkx as nx
 import matplotlib.pyplot as plt
 from seiz_models import SEIZModel, SEIZBMModel, SEIZSMModel

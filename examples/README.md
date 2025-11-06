@@ -8,7 +8,13 @@ Run the basic usage example to see all three models in action:
 
 ```bash
 cd examples
-python basic_usage.py
+python3 basic_usage.py
+```
+
+Or from the repository root:
+
+```bash
+python3 examples/basic_usage.py
 ```
 
 This will:
