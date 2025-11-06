@@ -1,4 +1,4 @@
-# SEIZ Epidemic Models for Social Networks
+# Evaluating Moderation in Online Social Networks
 
 This package provides implementations of SEIZ (Susceptible-Exposed-Infected-Skeptic) epidemic models for studying information spread and content moderation on social networks.
 
@@ -19,17 +19,15 @@ All models share a common interface for:
 
 ## Installation
 
+Install the package and dependencies via pip:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-Or install in development mode:
-
-```bash
-pip install -e .
-```
-
 ## Quick Start
+
+The following examples demonstrate how to use each model.
 
 ### Basic SEIZ Model
 
@@ -179,3 +177,17 @@ All models use the SEIZ framework with four states:
 ## License
 
 See LICENSE file for details.
+
+## Citation 
+If you use this package in your research, please cite:
+
+```
+@article{your2024seiz,
+  title={Evaluating Moderation in Online Social Networks},
+  author={Milli Letizia and Pollacci Laura and Guidotti Riccardo},
+  journal={ },
+  year={2025},
+}
+```
+
+Implemented by: Giulio Rossetti.

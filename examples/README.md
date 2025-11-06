@@ -8,7 +8,7 @@ Run the basic usage example to see all three models in action:
 
 ```bash
 cd examples
-PYTHONPATH=..:$PYTHONPATH python3 basic_usage.py
+python basic_usage.py
 ```
 
 This will:
